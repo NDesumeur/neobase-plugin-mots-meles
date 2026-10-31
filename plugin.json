@@ -1,0 +1,19 @@
+{
+  "id": "neobase.motsmeles",
+  "name": "Mots mêlés",
+  "version": "1.0.0",
+  "author": "NDesumeur",
+  "description": "Des mots d'un thème cachés dans la grille, dans 2, 4 ou 8 directions : glisse de la première à la dernière lettre.",
+  "icon": "icon.png",
+  "entry": "index.js",
+  "view": "mots-meles",
+  "neobase": ">=4.0.0",
+  "type": "app",
+  "category": "Jeux",
+  "mobile": false,
+  "system": false,
+  "dependencies": {},
+  "permissions": [
+    "full"
+  ]
+}
