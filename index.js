@@ -2,11 +2,22 @@
 // Ses données sont dans le dossier du plugin, que NeoBase sauvegarde (synchro cloud et sauvegardes) ; à la première ouverture elle reprend ce que tu avais dans NeoBase.
 // Elle demande l'accès complet pour utiliser les outils d'interface de NeoBase. NeoBase ne l'ouvre que si elle est signée.
 const HTML = "<div class=\"appWrap wide\">\n      <div class=\"agHead\"><span class=\"label\">Mots mêlés</span><span class=\"hint\" id=\"wsInfo\"></span><div class=\"agNav\"><select class=\"f gSel\" id=\"wsTheme\"></select><select class=\"f gSel\" id=\"wsSize\"><option value=\"10\">10 × 10 · 8 mots</option><option value=\"12\" selected>12 × 12 · 12 mots</option><option value=\"15\">15 × 15 · 18 mots</option><option value=\"18\">18 × 18 · 24 mots</option><option value=\"20\">20 × 20 · 30 mots</option></select><select class=\"f gSel\" id=\"wsLevel\"><option value=\"facile\">Facile · 2 sens</option><option value=\"normal\" selected>Normal · diagonales</option><option value=\"difficile\">Difficile · 8 sens</option></select><button class=\"btn px\" id=\"wsNew\">NOUVELLE GRILLE</button></div></div>\n      <div class=\"wsMain\"><div id=\"wsGrid\" class=\"px\"></div><div class=\"sysCard px wsSide\"><span class=\"label\">Mots à trouver</span><div id=\"wsWords\"></div></div></div>\n      <div class=\"hint\">Glisse de la première à la dernière lettre d'un mot. Le chrono démarre à ta première sélection.</div>\n    </div>";
+/*CSS-MOVED*/ const CSS = `.gSel{width:auto;font-size:14px;padding:6px 10px;margin-right:8px}
+.wsMain{display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap}
+#wsGrid{--fill:var(--field);display:grid;padding:8px;touch-action:none;cursor:var(--cp,pointer)}
+.wsCell{display:grid;place-items:center;font-family:var(--title);color:var(--lilac)}
+.wsCell.sel{background:rgba(var(--pkr),.45) !important;color:#fff}
+.wsSide{min-width:240px;flex:1}
+#wsWords{display:flex;flex-wrap:wrap;gap:8px 16px}
+.wsWord{font-size:17px;color:#fff}
+.wsWord.found{text-decoration:line-through;opacity:.8}
+`;  // le style de ce plugin (il utilise les variables du thème de NeoBase)
 export default async function (ctx) {
   const view = ctx.view;
   if (!ctx.host) { view.textContent = "Ce plugin doit être approuvé par NeoBase pour s'ouvrir."; return; }
   const host = ctx.host, { el, toast, sfx, ask, newTab, pixIcon, PIX, WX } = host;
   const folder = ctx.folder, legacy = ctx.legacy || {};
+  ctx.host.addStyle(CSS);
   view.innerHTML = HTML;
   const $ = id => id === "wordsApp" ? view : (view.querySelector('#' + id) || document.getElementById(id));  // les identifiants de ta vue d'abord, puis ceux de la page (fenêtres, menus)
   const doc = async n => { try { return await folder.read(n); } catch { return null; } };
