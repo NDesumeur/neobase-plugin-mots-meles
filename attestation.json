@@ -1,0 +1,9 @@
+{
+  "pluginId": "neobase.motsmeles",
+  "repo": "NDesumeur/neobase-plugin-mots-meles",
+  "version": "1.0.0",
+  "sha256": "6546b84a71df6e243a7859e85fa0b6262738333115dd3a7d7cf83a83b7152871",
+  "approvedAt": "2026-10-31T16:22:01.604Z",
+  "neobase": ">=4.0.0",
+  "signature": "czUAxSwT8d5XmCgdboW3TNLh5iv595f/QemprxncFW2fCNdH2gFP5zkA6vX/GaN5cl2wFnll8WmR0CFaZZ0WCw=="
+}
