@@ -1,6 +1,6 @@
 {
-  "pluginId": "neobase.motsmeles",
-  "repo": "NDesumeur/neobase-plugin-mots-meles",
+  "pluginId": "neodex.motsmeles",
+  "repo": "NDesumeur/neodex-plugin-mots-meles",
   "version": "1.0.1",
   "sha256": "d6ef372adbbdd59eb4d11d93d29479d7dd198793b3d73f3b0d3dfd5d069b62e9",
   "approvedAt": "2026-10-31T17:51:20.967Z",
